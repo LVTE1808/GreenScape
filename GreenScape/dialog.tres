@@ -1,0 +1,1183 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+resource_version = 22
+syntax_version = 2
+raw_text = "~ introduktion1_til_spil
+if samtaler_faerdig == 0
+	EcoGuide: [[Hej|Goddag]], [[mit navn er|jeg hedder]] EcoGuide, og jeg skal være din guide i GreenScape.
+	EcoGuide: I GreenScape lærer du om den grønne omstilling, derfor skal du hjæle med at løse nogle opgaver, som udvider din horisont inden for den grønne omstilling. Når du løser en opgave, får du point, som du kan bruge til at komme videre i spillet.
+	EcoGuide: Først skal du i gennem en introduktion, hvor du lærer spillets mekanismer!
+	EcoGuide: For at gå op ad skal du trykke på \"W\" eller \"Pil op\". For at gå til ned ad skal du trykke på \"S\" eller \"Pil ned\". For at gå til venstre skal du trykke på \"A\" eller \"Pil til venstre\". For at gå til højre skal trykke på \"D\" eller \"Pil til højre\". Prøv dig frem!
+	EcoGuide: For at interagere med opgaver, skal du trykke \"E\". Når du når til de forskellige opgaver, får du en uddybende introduktion til opgaven.
+	- Super! Jeg har forstået det.
+		EcoGuide: Det var alt for nu. Næste emne, som er affaldssortering, finder du bag denne dør.
+		EcoGuide: Hvis du får brug for mig efter opgaven kan du finde mig nede start lokalet.
+		=> END
+	- Vil du gentage det en gang til?
+	EcoGuide: Ja, for at gå op ad skal du trykke på \"W\" eller \"Pil op\". For at gå til ned ad skal du trykke på \"S\" eller \"Pil ned\". For at gå til venstre skal du trykke på \"A\" eller \"Pil til venstre\". For at gå til højre skal trykke på \"D\" eller \"Pil til højre\". Prøv dig frem!
+	EcoGuide: For at interagere med opgaver, skal du trykke \"E\". Når du når til de forskellige opgaver, får du en uddybende introduktion til opgaven.
+	EcoGuide: Det var alt for nu. Næste emne, som er affaldssortering, finder du bag denne dør.
+	Ecoguide: Hvis du får brug for mig efter opgaven kan du finde mig nede start lokalet
+	=> END
+
+
+~ affaldssortering_start
+if affaldssortering_faerdig == false
+	EcoGuide: Velkommen til affaldssortering! Nu skal du lære lidt om, hvordan processerne fungerer, og hvad man bruger affaldssortering til.
+	EcoGuide: Affald bliver ofte sorteret i kategorier, eksempler kan være plastik, restaffald, pap og madaffald, disse eksempler er de mest normale sorteringer. Restaffald er typisk blandet affald, som ikke falder in for nogen andre kategorier eller usorteret affald.
+	EcoGuide: Restaffald bliver transporteret til et forbrændingsanlæg. Når affaldet bliver brændt, bliver der produceret energi som varme og elektricitet til husholdninger, på den anden side udleder det CO2 og andre kemiske stoffer ud i atmosfæren.
+	EcoGuide: Hvis plastik bliver sorteret fra, kan det genbruges, og der bliver sparret en masse energi i stedet for at producere nyt plastik. Dog forringes plastikken, per gang den bliver genbrugt, hvilket kaldes downcycle.
+	EcoGuide: Pap kan også genanvendes. Når madaffald og organiske affald bliver sorteret fra, bruges det til biogas, men også til gødning på marker.
+	EcoGuide: Affaldssortering gavner samfundet, men også den individuelle på mange punkter. Nu har du lært om Affaldssortering.
+	- Kan du forklarer det en gang til?
+		EcoGuide: Ja
+		EcoGuide: Affald bliver ofte sorteret i kategorier, eksempler kan være plastik, restaffald, pap og madaffald, disse eksempler er de mest normale sorteringer. Restaffald er typisk blandet affald, som ikke falder in for nogen andre kategorier eller usorteret affald.
+		EcoGuide: Restaffald bliver transporteret til et forbrændingsanlæg. Når affaldet bliver brændt, bliver der produceret energi som varme og elektricitet til husholdninger, på den anden side udleder det CO2 og andre kemiske stoffer ud i atmosfæren.
+		EcoGuide: Hvis plastik bliver sorteret fra, kan det genbruges, og der bliver sparret en masse energi i stedet for at producere nyt plastik. Dog forringes plastikken, per gang den bliver genbrugt, hvilket kaldes downcycle.
+		EcoGuide: Pap kan også genanvendes. Når madaffald og organiske affald bliver sorteret fra, bruges det til biogas, men også til gødning på marker.
+		EcoGuide: Nu har du lært om Affaldssortering, derfor kan du løse opgaven om affaldssortering som er bag ved mig.
+		=> END
+	- Ja, det har jeg.
+		EcoGuide: Du kan nu løse opgaven bag ved mig om affaldsortering.
+		=> END
+	samtaler_faerdig += 1
+	
+
+~ affaldssortering_slut
+if affaldssortering_faerdig == true
+	EcoGuide: Godt arbejde! Nu har du lært noget om affaldssortering.
+	EcoGuide: Du kan derfor nu lære om genbrug, som du finder ved at gå ned ad. Vi ses dernede!
+	
+
+=> END
+
+samtaler_faerdig += 1
+
+~ genbug_start
+if toej_sortering_faerdig == false
+	EcoGuide: Velkommen til genbrugsstationen. Her vil du lære om genbrug og genanvendelse.
+	EcoGuide: Genbrug og genanvendelse spiller en stor rolle i den grønne omstilling, da det betyder en del for anvendelsen af ressourcer.
+	EcoGuide: Forskellen på genbrug og genanvendelse er, at genbrug kan direkte blive solgt videre til andre eller givet videre til andre efter første kassering. Det er produkter som er i god nok stand til at komme videre til en ny forbruger.
+	EcoGuide: Genanvendelse er produkter som er i for dårlig stand til at blive genbrugt, så selve materialerne bliver genanvendt typisk til samme formål. Typiske produkter som bliver genbrugt, er tekstiler, møbler og flasker.
+	EcoGuide: De gode konsekvenser der er ved genbrug og genanvendelse er økonomien, det er både godt for den individuelle, da produkter ikke særlig dyre, eller man kan få profit for sin egne produkter.
+	EcoGuide: Derudover sparer samfundet penge, da der ikke skal betales for produktion af nye produkter til forbruger.
+	EcoGuide: På samme måde er genbrug og genanvendelse også sundt for klimaet, da genbrug ikke bruger energi, og udleder derfor heller ikke gasser og kemikalier ud i naturen og i atmosfæren.
+	EcoGuide: Når det gælder genanvendelse, så sparers der en masse energi, da produktet ikke skal produceres fra start.
+	EcoGuide: Nu har du lært om genbrug og genanvendelse.
+	- Vil du gentage emnet?
+		EcoGuide: Ja da. Genbrug og genanvendelse spiller en stor rolle i den grønne omstilling, da det betyder en del for anvendelsen af ressourcer.
+		EcoGuide: Forskellen på genbrug og genanvendelse er, at genbrug kan direkte blive solgt videre til andre eller givet videre til andre efter første kassering. Det er produkter som er i god nok stand til at komme videre til en ny forbruger.
+		EcoGuide: Genanvendelse er produkter som er i for dårlig stand til at blive genbrugt, så selve materialerne bliver genanvendt typisk til samme formål. Typiske produkter som bliver genbrugt, er tekstiler, møbler og flasker.
+		EcoGuide: De gode konsekvenser der er ved genbrug og genanvendelse er økonomien, det er både godt for den individuelle, da produkter ikke særlig dyre, eller man kan få profit for sin egne produkter.
+		EcoGuide: Derudover sparer samfundet penge, da der ikke skal betales for produktion af nye produkter til forbruger.
+		EcoGuide: På samme måde er genbrug og genanvendelse også sundt for klimaet, da genbrug ikke bruger energi, og udleder derfor heller ikke gasser og kemikalier ud i naturen og i atmosfæren.
+		EcoGuide: Når det gælder genanvendelse, så sparers der en masse energi, da produktet ikke skal produceres fra start.
+		EcoGuide: Du kan nu løse opgaven om genbrug og genanvendelse, som ligger nederst
+		=> END
+	- Tak for det
+		EcoGuide: Du kan nu løse opgaven om genbrug og genanvendelse \"lokation\"
+	=> END
+	samtaler_faerdig += 1
+
+
+
+~ genbrug_slut
+if sidste_tale == true
+	EcoGuide: Tillykke, endnu en opgave løst!
+	EcoGuide: Dette var det sidste fra min side af, Den sidste opgave er helt henne til højre, der skal du lære om vigtigheden af planter.
+	=> END
+	samtaler_faerdig += 1
+
+
+
+~ energi_start
+if energi_faerdig == false
+	EcoGuide: Velkommen til Energiafdelingen. Her lærer du om forskellige energiformer, som vi bruger, og hvilke energiformer vi planlægger at bruge i fremtiden.
+	EcoGuide: Der bliver brugt 2 former for energi; der er vedvarende energi og så er der fossile energikilder.
+	EcoGuide: De vedvarende energikilder er vindkraft, vandkraft, solenergi, biomasse og geotermisk energi. Vedvarende energikilder er energi der kan udvindes, hvorefter kilden fornyer sig selv.
+	EcoGuide: Vedvarende energi er også kendt som den grønne energi, fordi den næsten er CO2 neutral under brug, men bruger mere CO2 når konstruktionerne til vedvarende energi bliver bygget.
+	EcoGuide: Det er denne del af energiformer, som man vil have mere af i Danmarks fremtid, og den er derfor i klimaplanen for den grønne omstilling for et mere CO2-neutralt Danmark.
+	EcoGuide: Den vedvarende energi er svær at opbevarer, det kan derfor være problematisk til tider, hvor der ikke er særlig meget vind, og dermed svag vandkraft, og heller ikke særlig meget sol. 
+	EcoGuide: Den fossile energi kommer fra fossile brændstoffer som kul, olie og gas, og atomer til atomkraft, som bliver brændt af eller brugt for at skabe energi til husholdninger, transport og meget mere.
+	EcoGuide: Den fossile energi er stadig en stor del af energien i Danmark, og planen er, at omlægge de fossile brændsler til vedvarende energi.
+	EcoGuide: Transportsektoren er den sektor som bruger mest energi i form af brændstof og el, for energien går til biler, toge, lastbiler, skibe, fly osv. 
+	EcoGuide: Den næst største forbruger af energi er husholdninger, hvilket er i takt med flere produkter som kræver energi.
+	EcoGuide: Det var noget om energi vedrørende den grønne omstilling.
+	- Vil du gentage emnet?
+		EcoGuide: Ja. Der bliver brugt 2 former for energi; der er vedvarende energi og så er der fossile energikilder.
+		EcoGuide: De vedvarende energikilder er vindkraft, vandkraft, solenergi, biomasse og geotermisk energi. Vedvarende energikilder er energi der kan udvindes, hvorefter kilden fornyer sig selv.
+		EcoGuide: Vedvarende energi er også kendt som den grønne energi, fordi den næsten er CO2 neutral under brug, men bruger mere CO2 når konstruktionerne til vedvarende energi bliver bygget.
+		EcoGuide: Det er denne del af energiformer, som man vil have mere af i Danmarks fremtid, og den er derfor i klimaplanen for den grønne omstilling for et mere CO2-neutralt Danmark.
+		EcoGuide: Den vedvarende energi er svær at opbevarer, det kan derfor være problematisk til tider, hvor der ikke er særlig meget vind, og dermed svag vandkraft, og heller ikke særlig meget sol. 
+		EcoGuide: Den fossile energi kommer fra fossile brændstoffer som kul, olie og gas, og atomer til atomkraft, som bliver brændt af eller brugt for at skabe energi til husholdninger, transport og meget mere.
+		EcoGuide: Den fossile energi er stadig en stor del af energien i Danmark, og planen er, at omlægge de fossile brændsler til vedvarende energi.
+		EcoGuide: Transportsektoren er den sektor som bruger mest energi i form af brændstof og el, for energien går til biler, toge, lastbiler, skibe, fly osv. 
+		EcoGuide: Den næst største forbruger af energi er husholdninger, hvilket er i takt med flere produkter som kræver energi.
+		=> END
+	- Super, det har jeg forstået!
+		EcoGuide: Perfekt. Så er du nået til opgaven om energi, som du kan finde \"lokation\"
+		=> END
+	samtaler_faerdig += 1
+
+=> END
+
+~ energi_slut
+if energi_faerdig == true
+	EcoGuide: Godt gået
+	EcoGuide: Det var alt jeg havde for nu. Du har nu klaret spillet! Og forhåbentligt lært noget nyt, som du kan bruge.
+	=> END
+	samtaler_faerdig += 1"
+errors = [  ]
+titles = {
+"affaldssortering_slut": "42",
+"affaldssortering_start": "20",
+"energi_slut": "120",
+"energi_start": "89",
+"genbrug_slut": "80",
+"genbug_start": "52",
+"introduktion1_til_spil": "1"
+}
+lines = {
+"0": {
+"next_id": "1",
+"text": "introduktion1_til_spil",
+"type": "title"
+},
+"1": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "samtaler_faerdig"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "number",
+"value": 0
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "2",
+"next_id_after": "end!",
+"type": "condition"
+},
+"10": {
+"next_id": "end",
+"parent_id": "7",
+"type": "goto"
+},
+"100": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "101",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Det var noget om energi vedrørende den grønne omstilling.",
+"translation_key": "Det var noget om energi vedrørende den grønne omstilling.",
+"type": "dialogue"
+},
+"101": {
+"next_id": "102",
+"next_id_after": "115",
+"parent_id": "89",
+"replacements": [  ],
+"responses": PoolStringArray( "101", "112" ),
+"text": "Vil du gentage emnet?",
+"translation_key": "Vil du gentage emnet?",
+"type": "response"
+},
+"102": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "103",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Ja. Der bliver brugt 2 former for energi; der er vedvarende energi og så er der fossile energikilder.",
+"translation_key": "Ja. Der bliver brugt 2 former for energi; der er vedvarende energi og så er der fossile energikilder.",
+"type": "dialogue"
+},
+"103": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "104",
+"parent_id": "101",
+"replacements": [  ],
+"text": "De vedvarende energikilder er vindkraft, vandkraft, solenergi, biomasse og geotermisk energi. Vedvarende energikilder er energi der kan udvindes, hvorefter kilden fornyer sig selv.",
+"translation_key": "De vedvarende energikilder er vindkraft, vandkraft, solenergi, biomasse og geotermisk energi. Vedvarende energikilder er energi der kan udvindes, hvorefter kilden fornyer sig selv.",
+"type": "dialogue"
+},
+"104": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "105",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Vedvarende energi er også kendt som den grønne energi, fordi den næsten er CO2 neutral under brug, men bruger mere CO2 når konstruktionerne til vedvarende energi bliver bygget.",
+"translation_key": "Vedvarende energi er også kendt som den grønne energi, fordi den næsten er CO2 neutral under brug, men bruger mere CO2 når konstruktionerne til vedvarende energi bliver bygget.",
+"type": "dialogue"
+},
+"105": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "106",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Det er denne del af energiformer, som man vil have mere af i Danmarks fremtid, og den er derfor i klimaplanen for den grønne omstilling for et mere CO2-neutralt Danmark.",
+"translation_key": "Det er denne del af energiformer, som man vil have mere af i Danmarks fremtid, og den er derfor i klimaplanen for den grønne omstilling for et mere CO2-neutralt Danmark.",
+"type": "dialogue"
+},
+"106": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "107",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Den vedvarende energi er svær at opbevarer, det kan derfor være problematisk til tider, hvor der ikke er særlig meget vind, og dermed svag vandkraft, og heller ikke særlig meget sol.",
+"translation_key": "Den vedvarende energi er svær at opbevarer, det kan derfor være problematisk til tider, hvor der ikke er særlig meget vind, og dermed svag vandkraft, og heller ikke særlig meget sol.",
+"type": "dialogue"
+},
+"107": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "108",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Den fossile energi kommer fra fossile brændstoffer som kul, olie og gas, og atomer til atomkraft, som bliver brændt af eller brugt for at skabe energi til husholdninger, transport og meget mere.",
+"translation_key": "Den fossile energi kommer fra fossile brændstoffer som kul, olie og gas, og atomer til atomkraft, som bliver brændt af eller brugt for at skabe energi til husholdninger, transport og meget mere.",
+"type": "dialogue"
+},
+"108": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "109",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Den fossile energi er stadig en stor del af energien i Danmark, og planen er, at omlægge de fossile brændsler til vedvarende energi.",
+"translation_key": "Den fossile energi er stadig en stor del af energien i Danmark, og planen er, at omlægge de fossile brændsler til vedvarende energi.",
+"type": "dialogue"
+},
+"109": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "110",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Transportsektoren er den sektor som bruger mest energi i form af brændstof og el, for energien går til biler, toge, lastbiler, skibe, fly osv.",
+"translation_key": "Transportsektoren er den sektor som bruger mest energi i form af brændstof og el, for energien går til biler, toge, lastbiler, skibe, fly osv.",
+"type": "dialogue"
+},
+"11": {
+"next_id": "12",
+"next_id_after": "12",
+"parent_id": "1",
+"replacements": [  ],
+"text": "Vil du gentage det en gang til?",
+"translation_key": "Vil du gentage det en gang til?",
+"type": "response"
+},
+"110": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "111",
+"parent_id": "101",
+"replacements": [  ],
+"text": "Den næst største forbruger af energi er husholdninger, hvilket er i takt med flere produkter som kræver energi.",
+"translation_key": "Den næst største forbruger af energi er husholdninger, hvilket er i takt med flere produkter som kræver energi.",
+"type": "dialogue"
+},
+"111": {
+"next_id": "end",
+"parent_id": "101",
+"type": "goto"
+},
+"112": {
+"next_id": "113",
+"next_id_after": "115",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Super, det har jeg forstået!",
+"translation_key": "Super, det har jeg forstået!",
+"type": "response"
+},
+"113": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "114",
+"parent_id": "112",
+"replacements": [  ],
+"text": "Perfekt. Så er du nået til opgaven om energi, som du kan finde \"lokation\"",
+"translation_key": "Perfekt. Så er du nået til opgaven om energi, som du kan finde \"lokation\"",
+"type": "dialogue"
+},
+"114": {
+"next_id": "end",
+"parent_id": "112",
+"type": "goto"
+},
+"115": {
+"character": "",
+"next_id": "117",
+"parent_id": "89",
+"replacements": [  ],
+"text": "samtaler_faerdig += 1",
+"translation_key": "samtaler_faerdig += 1",
+"type": "dialogue"
+},
+"117": {
+"next_id": "end",
+"type": "goto"
+},
+"119": {
+"next_id": "120",
+"text": "energi_slut",
+"type": "title"
+},
+"12": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "13",
+"parent_id": "1",
+"replacements": [  ],
+"text": "Ja, for at gå op ad skal du trykke på \"W\" eller \"Pil op\". For at gå til ned ad skal du trykke på \"S\" eller \"Pil ned\". For at gå til venstre skal du trykke på \"A\" eller \"Pil til venstre\". For at gå til højre skal trykke på \"D\" eller \"Pil til højre\". Prøv dig frem!",
+"translation_key": "Ja, for at gå op ad skal du trykke på \"W\" eller \"Pil op\". For at gå til ned ad skal du trykke på \"S\" eller \"Pil ned\". For at gå til venstre skal du trykke på \"A\" eller \"Pil til venstre\". For at gå til højre skal trykke på \"D\" eller \"Pil til højre\". Prøv dig frem!",
+"type": "dialogue"
+},
+"120": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "energi_faerdig"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "121",
+"next_id_after": "end!",
+"type": "condition"
+},
+"121": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "122",
+"parent_id": "120",
+"replacements": [  ],
+"text": "Godt gået",
+"translation_key": "Godt gået",
+"type": "dialogue"
+},
+"122": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "123",
+"parent_id": "120",
+"replacements": [  ],
+"text": "Det var alt jeg havde for nu. Du har nu klaret spillet! Og forhåbentligt lært noget nyt, som du kan bruge.",
+"translation_key": "Det var alt jeg havde for nu. Du har nu klaret spillet! Og forhåbentligt lært noget nyt, som du kan bruge.",
+"type": "dialogue"
+},
+"123": {
+"next_id": "end",
+"parent_id": "120",
+"type": "goto"
+},
+"124": {
+"character": "",
+"next_id": "end!",
+"parent_id": "120",
+"replacements": [  ],
+"text": "samtaler_faerdig += 1",
+"translation_key": "samtaler_faerdig += 1",
+"type": "dialogue"
+},
+"13": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "14",
+"parent_id": "1",
+"replacements": [  ],
+"text": "For at interagere med opgaver, skal du trykke \"E\". Når du når til de forskellige opgaver, får du en uddybende introduktion til opgaven.",
+"translation_key": "For at interagere med opgaver, skal du trykke \"E\". Når du når til de forskellige opgaver, får du en uddybende introduktion til opgaven.",
+"type": "dialogue"
+},
+"14": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "15",
+"parent_id": "1",
+"replacements": [  ],
+"text": "Det var alt for nu. Næste emne, som er affaldssortering, finder du bag denne dør.",
+"translation_key": "Det var alt for nu. Næste emne, som er affaldssortering, finder du bag denne dør.",
+"type": "dialogue"
+},
+"15": {
+"character": "Ecoguide",
+"character_replacements": [  ],
+"next_id": "16",
+"parent_id": "1",
+"replacements": [  ],
+"text": "Hvis du får brug for mig efter opgaven kan du finde mig nede start lokalet",
+"translation_key": "Hvis du får brug for mig efter opgaven kan du finde mig nede start lokalet",
+"type": "dialogue"
+},
+"16": {
+"next_id": "end",
+"parent_id": "1",
+"type": "goto"
+},
+"19": {
+"next_id": "20",
+"text": "affaldssortering_start",
+"type": "title"
+},
+"2": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "3",
+"parent_id": "1",
+"replacements": [  ],
+"text": "[[Hej|Goddag]], [[mit navn er|jeg hedder]] EcoGuide, og jeg skal være din guide i GreenScape.",
+"translation_key": "[[Hej|Goddag]], [[mit navn er|jeg hedder]] EcoGuide, og jeg skal være din guide i GreenScape.",
+"type": "dialogue"
+},
+"20": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "affaldssortering_faerdig"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "21",
+"next_id_after": "end!",
+"type": "condition"
+},
+"21": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "22",
+"parent_id": "20",
+"replacements": [  ],
+"text": "Velkommen til affaldssortering! Nu skal du lære lidt om, hvordan processerne fungerer, og hvad man bruger affaldssortering til.",
+"translation_key": "Velkommen til affaldssortering! Nu skal du lære lidt om, hvordan processerne fungerer, og hvad man bruger affaldssortering til.",
+"type": "dialogue"
+},
+"22": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "23",
+"parent_id": "20",
+"replacements": [  ],
+"text": "Affald bliver ofte sorteret i kategorier, eksempler kan være plastik, restaffald, pap og madaffald, disse eksempler er de mest normale sorteringer. Restaffald er typisk blandet affald, som ikke falder in for nogen andre kategorier eller usorteret affald.",
+"translation_key": "Affald bliver ofte sorteret i kategorier, eksempler kan være plastik, restaffald, pap og madaffald, disse eksempler er de mest normale sorteringer. Restaffald er typisk blandet affald, som ikke falder in for nogen andre kategorier eller usorteret affald.",
+"type": "dialogue"
+},
+"23": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "24",
+"parent_id": "20",
+"replacements": [  ],
+"text": "Restaffald bliver transporteret til et forbrændingsanlæg. Når affaldet bliver brændt, bliver der produceret energi som varme og elektricitet til husholdninger, på den anden side udleder det CO2 og andre kemiske stoffer ud i atmosfæren.",
+"translation_key": "Restaffald bliver transporteret til et forbrændingsanlæg. Når affaldet bliver brændt, bliver der produceret energi som varme og elektricitet til husholdninger, på den anden side udleder det CO2 og andre kemiske stoffer ud i atmosfæren.",
+"type": "dialogue"
+},
+"24": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "25",
+"parent_id": "20",
+"replacements": [  ],
+"text": "Hvis plastik bliver sorteret fra, kan det genbruges, og der bliver sparret en masse energi i stedet for at producere nyt plastik. Dog forringes plastikken, per gang den bliver genbrugt, hvilket kaldes downcycle.",
+"translation_key": "Hvis plastik bliver sorteret fra, kan det genbruges, og der bliver sparret en masse energi i stedet for at producere nyt plastik. Dog forringes plastikken, per gang den bliver genbrugt, hvilket kaldes downcycle.",
+"type": "dialogue"
+},
+"25": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "26",
+"parent_id": "20",
+"replacements": [  ],
+"text": "Pap kan også genanvendes. Når madaffald og organiske affald bliver sorteret fra, bruges det til biogas, men også til gødning på marker.",
+"translation_key": "Pap kan også genanvendes. Når madaffald og organiske affald bliver sorteret fra, bruges det til biogas, men også til gødning på marker.",
+"type": "dialogue"
+},
+"26": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "27",
+"parent_id": "20",
+"replacements": [  ],
+"text": "Affaldssortering gavner samfundet, men også den individuelle på mange punkter. Nu har du lært om Affaldssortering.",
+"translation_key": "Affaldssortering gavner samfundet, men også den individuelle på mange punkter. Nu har du lært om Affaldssortering.",
+"type": "dialogue"
+},
+"27": {
+"next_id": "28",
+"next_id_after": "38",
+"parent_id": "20",
+"replacements": [  ],
+"responses": PoolStringArray( "27", "35" ),
+"text": "Kan du forklarer det en gang til?",
+"translation_key": "Kan du forklarer det en gang til?",
+"type": "response"
+},
+"28": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "29",
+"parent_id": "27",
+"replacements": [  ],
+"text": "Ja",
+"translation_key": "Ja",
+"type": "dialogue"
+},
+"29": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "30",
+"parent_id": "27",
+"replacements": [  ],
+"text": "Affald bliver ofte sorteret i kategorier, eksempler kan være plastik, restaffald, pap og madaffald, disse eksempler er de mest normale sorteringer. Restaffald er typisk blandet affald, som ikke falder in for nogen andre kategorier eller usorteret affald.",
+"translation_key": "Affald bliver ofte sorteret i kategorier, eksempler kan være plastik, restaffald, pap og madaffald, disse eksempler er de mest normale sorteringer. Restaffald er typisk blandet affald, som ikke falder in for nogen andre kategorier eller usorteret affald.",
+"type": "dialogue"
+},
+"3": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "4",
+"parent_id": "1",
+"replacements": [  ],
+"text": "I GreenScape lærer du om den grønne omstilling, derfor skal du hjæle med at løse nogle opgaver, som udvider din horisont inden for den grønne omstilling. Når du løser en opgave, får du point, som du kan bruge til at komme videre i spillet.",
+"translation_key": "I GreenScape lærer du om den grønne omstilling, derfor skal du hjæle med at løse nogle opgaver, som udvider din horisont inden for den grønne omstilling. Når du løser en opgave, får du point, som du kan bruge til at komme videre i spillet.",
+"type": "dialogue"
+},
+"30": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "31",
+"parent_id": "27",
+"replacements": [  ],
+"text": "Restaffald bliver transporteret til et forbrændingsanlæg. Når affaldet bliver brændt, bliver der produceret energi som varme og elektricitet til husholdninger, på den anden side udleder det CO2 og andre kemiske stoffer ud i atmosfæren.",
+"translation_key": "Restaffald bliver transporteret til et forbrændingsanlæg. Når affaldet bliver brændt, bliver der produceret energi som varme og elektricitet til husholdninger, på den anden side udleder det CO2 og andre kemiske stoffer ud i atmosfæren.",
+"type": "dialogue"
+},
+"31": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "32",
+"parent_id": "27",
+"replacements": [  ],
+"text": "Hvis plastik bliver sorteret fra, kan det genbruges, og der bliver sparret en masse energi i stedet for at producere nyt plastik. Dog forringes plastikken, per gang den bliver genbrugt, hvilket kaldes downcycle.",
+"translation_key": "Hvis plastik bliver sorteret fra, kan det genbruges, og der bliver sparret en masse energi i stedet for at producere nyt plastik. Dog forringes plastikken, per gang den bliver genbrugt, hvilket kaldes downcycle.",
+"type": "dialogue"
+},
+"32": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "33",
+"parent_id": "27",
+"replacements": [  ],
+"text": "Pap kan også genanvendes. Når madaffald og organiske affald bliver sorteret fra, bruges det til biogas, men også til gødning på marker.",
+"translation_key": "Pap kan også genanvendes. Når madaffald og organiske affald bliver sorteret fra, bruges det til biogas, men også til gødning på marker.",
+"type": "dialogue"
+},
+"33": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "34",
+"parent_id": "27",
+"replacements": [  ],
+"text": "Nu har du lært om Affaldssortering, derfor kan du løse opgaven om affaldssortering som er bag ved mig.",
+"translation_key": "Nu har du lært om Affaldssortering, derfor kan du løse opgaven om affaldssortering som er bag ved mig.",
+"type": "dialogue"
+},
+"34": {
+"next_id": "end",
+"parent_id": "27",
+"type": "goto"
+},
+"35": {
+"next_id": "36",
+"next_id_after": "38",
+"parent_id": "20",
+"replacements": [  ],
+"text": "Ja, det har jeg.",
+"translation_key": "Ja, det har jeg.",
+"type": "response"
+},
+"36": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "37",
+"parent_id": "35",
+"replacements": [  ],
+"text": "Du kan nu løse opgaven bag ved mig om affaldsortering.",
+"translation_key": "Du kan nu løse opgaven bag ved mig om affaldsortering.",
+"type": "dialogue"
+},
+"37": {
+"next_id": "end",
+"parent_id": "35",
+"type": "goto"
+},
+"38": {
+"character": "",
+"next_id": "end!",
+"parent_id": "20",
+"replacements": [  ],
+"text": "samtaler_faerdig += 1",
+"translation_key": "samtaler_faerdig += 1",
+"type": "dialogue"
+},
+"4": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "5",
+"parent_id": "1",
+"replacements": [  ],
+"text": "Først skal du i gennem en introduktion, hvor du lærer spillets mekanismer!",
+"translation_key": "Først skal du i gennem en introduktion, hvor du lærer spillets mekanismer!",
+"type": "dialogue"
+},
+"41": {
+"next_id": "42",
+"text": "affaldssortering_slut",
+"type": "title"
+},
+"42": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "affaldssortering_faerdig"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "47",
+"next_id": "43",
+"next_id_after": "47",
+"type": "condition"
+},
+"43": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "44",
+"parent_id": "42",
+"replacements": [  ],
+"text": "Godt arbejde! Nu har du lært noget om affaldssortering.",
+"translation_key": "Godt arbejde! Nu har du lært noget om affaldssortering.",
+"type": "dialogue"
+},
+"44": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "47",
+"parent_id": "42",
+"replacements": [  ],
+"text": "Du kan derfor nu lære om genbrug, som du finder ved at gå ned ad. Vi ses dernede!",
+"translation_key": "Du kan derfor nu lære om genbrug, som du finder ved at gå ned ad. Vi ses dernede!",
+"type": "dialogue"
+},
+"47": {
+"next_id": "end",
+"type": "goto"
+},
+"49": {
+"character": "",
+"next_id": "",
+"replacements": [  ],
+"text": "samtaler_faerdig += 1",
+"translation_key": "samtaler_faerdig += 1",
+"type": "dialogue"
+},
+"5": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "6",
+"parent_id": "1",
+"replacements": [  ],
+"text": "For at gå op ad skal du trykke på \"W\" eller \"Pil op\". For at gå til ned ad skal du trykke på \"S\" eller \"Pil ned\". For at gå til venstre skal du trykke på \"A\" eller \"Pil til venstre\". For at gå til højre skal trykke på \"D\" eller \"Pil til højre\". Prøv dig frem!",
+"translation_key": "For at gå op ad skal du trykke på \"W\" eller \"Pil op\". For at gå til ned ad skal du trykke på \"S\" eller \"Pil ned\". For at gå til venstre skal du trykke på \"A\" eller \"Pil til venstre\". For at gå til højre skal trykke på \"D\" eller \"Pil til højre\". Prøv dig frem!",
+"type": "dialogue"
+},
+"51": {
+"next_id": "52",
+"text": "genbug_start",
+"type": "title"
+},
+"52": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "toej_sortering_faerdig"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "53",
+"next_id_after": "end!",
+"type": "condition"
+},
+"53": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "54",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Velkommen til genbrugsstationen. Her vil du lære om genbrug og genanvendelse.",
+"translation_key": "Velkommen til genbrugsstationen. Her vil du lære om genbrug og genanvendelse.",
+"type": "dialogue"
+},
+"54": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "55",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Genbrug og genanvendelse spiller en stor rolle i den grønne omstilling, da det betyder en del for anvendelsen af ressourcer.",
+"translation_key": "Genbrug og genanvendelse spiller en stor rolle i den grønne omstilling, da det betyder en del for anvendelsen af ressourcer.",
+"type": "dialogue"
+},
+"55": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "56",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Forskellen på genbrug og genanvendelse er, at genbrug kan direkte blive solgt videre til andre eller givet videre til andre efter første kassering. Det er produkter som er i god nok stand til at komme videre til en ny forbruger.",
+"translation_key": "Forskellen på genbrug og genanvendelse er, at genbrug kan direkte blive solgt videre til andre eller givet videre til andre efter første kassering. Det er produkter som er i god nok stand til at komme videre til en ny forbruger.",
+"type": "dialogue"
+},
+"56": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "57",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Genanvendelse er produkter som er i for dårlig stand til at blive genbrugt, så selve materialerne bliver genanvendt typisk til samme formål. Typiske produkter som bliver genbrugt, er tekstiler, møbler og flasker.",
+"translation_key": "Genanvendelse er produkter som er i for dårlig stand til at blive genbrugt, så selve materialerne bliver genanvendt typisk til samme formål. Typiske produkter som bliver genbrugt, er tekstiler, møbler og flasker.",
+"type": "dialogue"
+},
+"57": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "58",
+"parent_id": "52",
+"replacements": [  ],
+"text": "De gode konsekvenser der er ved genbrug og genanvendelse er økonomien, det er både godt for den individuelle, da produkter ikke særlig dyre, eller man kan få profit for sin egne produkter.",
+"translation_key": "De gode konsekvenser der er ved genbrug og genanvendelse er økonomien, det er både godt for den individuelle, da produkter ikke særlig dyre, eller man kan få profit for sin egne produkter.",
+"type": "dialogue"
+},
+"58": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "59",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Derudover sparer samfundet penge, da der ikke skal betales for produktion af nye produkter til forbruger.",
+"translation_key": "Derudover sparer samfundet penge, da der ikke skal betales for produktion af nye produkter til forbruger.",
+"type": "dialogue"
+},
+"59": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "60",
+"parent_id": "52",
+"replacements": [  ],
+"text": "På samme måde er genbrug og genanvendelse også sundt for klimaet, da genbrug ikke bruger energi, og udleder derfor heller ikke gasser og kemikalier ud i naturen og i atmosfæren.",
+"translation_key": "På samme måde er genbrug og genanvendelse også sundt for klimaet, da genbrug ikke bruger energi, og udleder derfor heller ikke gasser og kemikalier ud i naturen og i atmosfæren.",
+"type": "dialogue"
+},
+"6": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "7",
+"parent_id": "1",
+"replacements": [  ],
+"text": "For at interagere med opgaver, skal du trykke \"E\". Når du når til de forskellige opgaver, får du en uddybende introduktion til opgaven.",
+"translation_key": "For at interagere med opgaver, skal du trykke \"E\". Når du når til de forskellige opgaver, får du en uddybende introduktion til opgaven.",
+"type": "dialogue"
+},
+"60": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "61",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Når det gælder genanvendelse, så sparers der en masse energi, da produktet ikke skal produceres fra start.",
+"translation_key": "Når det gælder genanvendelse, så sparers der en masse energi, da produktet ikke skal produceres fra start.",
+"type": "dialogue"
+},
+"61": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "62",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Nu har du lært om genbrug og genanvendelse.",
+"translation_key": "Nu har du lært om genbrug og genanvendelse.",
+"type": "dialogue"
+},
+"62": {
+"next_id": "63",
+"next_id_after": "74",
+"parent_id": "52",
+"replacements": [  ],
+"responses": PoolStringArray( "62", "72" ),
+"text": "Vil du gentage emnet?",
+"translation_key": "Vil du gentage emnet?",
+"type": "response"
+},
+"63": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "64",
+"parent_id": "62",
+"replacements": [  ],
+"text": "Ja da. Genbrug og genanvendelse spiller en stor rolle i den grønne omstilling, da det betyder en del for anvendelsen af ressourcer.",
+"translation_key": "Ja da. Genbrug og genanvendelse spiller en stor rolle i den grønne omstilling, da det betyder en del for anvendelsen af ressourcer.",
+"type": "dialogue"
+},
+"64": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "65",
+"parent_id": "62",
+"replacements": [  ],
+"text": "Forskellen på genbrug og genanvendelse er, at genbrug kan direkte blive solgt videre til andre eller givet videre til andre efter første kassering. Det er produkter som er i god nok stand til at komme videre til en ny forbruger.",
+"translation_key": "Forskellen på genbrug og genanvendelse er, at genbrug kan direkte blive solgt videre til andre eller givet videre til andre efter første kassering. Det er produkter som er i god nok stand til at komme videre til en ny forbruger.",
+"type": "dialogue"
+},
+"65": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "66",
+"parent_id": "62",
+"replacements": [  ],
+"text": "Genanvendelse er produkter som er i for dårlig stand til at blive genbrugt, så selve materialerne bliver genanvendt typisk til samme formål. Typiske produkter som bliver genbrugt, er tekstiler, møbler og flasker.",
+"translation_key": "Genanvendelse er produkter som er i for dårlig stand til at blive genbrugt, så selve materialerne bliver genanvendt typisk til samme formål. Typiske produkter som bliver genbrugt, er tekstiler, møbler og flasker.",
+"type": "dialogue"
+},
+"66": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "67",
+"parent_id": "62",
+"replacements": [  ],
+"text": "De gode konsekvenser der er ved genbrug og genanvendelse er økonomien, det er både godt for den individuelle, da produkter ikke særlig dyre, eller man kan få profit for sin egne produkter.",
+"translation_key": "De gode konsekvenser der er ved genbrug og genanvendelse er økonomien, det er både godt for den individuelle, da produkter ikke særlig dyre, eller man kan få profit for sin egne produkter.",
+"type": "dialogue"
+},
+"67": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "68",
+"parent_id": "62",
+"replacements": [  ],
+"text": "Derudover sparer samfundet penge, da der ikke skal betales for produktion af nye produkter til forbruger.",
+"translation_key": "Derudover sparer samfundet penge, da der ikke skal betales for produktion af nye produkter til forbruger.",
+"type": "dialogue"
+},
+"68": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "69",
+"parent_id": "62",
+"replacements": [  ],
+"text": "På samme måde er genbrug og genanvendelse også sundt for klimaet, da genbrug ikke bruger energi, og udleder derfor heller ikke gasser og kemikalier ud i naturen og i atmosfæren.",
+"translation_key": "På samme måde er genbrug og genanvendelse også sundt for klimaet, da genbrug ikke bruger energi, og udleder derfor heller ikke gasser og kemikalier ud i naturen og i atmosfæren.",
+"type": "dialogue"
+},
+"69": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "70",
+"parent_id": "62",
+"replacements": [  ],
+"text": "Når det gælder genanvendelse, så sparers der en masse energi, da produktet ikke skal produceres fra start.",
+"translation_key": "Når det gælder genanvendelse, så sparers der en masse energi, da produktet ikke skal produceres fra start.",
+"type": "dialogue"
+},
+"7": {
+"next_id": "8",
+"next_id_after": "12",
+"parent_id": "1",
+"replacements": [  ],
+"responses": PoolStringArray( "7", "11" ),
+"text": "Super! Jeg har forstået det.",
+"translation_key": "Super! Jeg har forstået det.",
+"type": "response"
+},
+"70": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "71",
+"parent_id": "62",
+"replacements": [  ],
+"text": "Du kan nu løse opgaven om genbrug og genanvendelse, som ligger nederst",
+"translation_key": "Du kan nu løse opgaven om genbrug og genanvendelse, som ligger nederst",
+"type": "dialogue"
+},
+"71": {
+"next_id": "end",
+"parent_id": "62",
+"type": "goto"
+},
+"72": {
+"next_id": "73",
+"next_id_after": "74",
+"parent_id": "52",
+"replacements": [  ],
+"text": "Tak for det",
+"translation_key": "Tak for det",
+"type": "response"
+},
+"73": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "74",
+"parent_id": "72",
+"replacements": [  ],
+"text": "Du kan nu løse opgaven om genbrug og genanvendelse \"lokation\"",
+"translation_key": "Du kan nu løse opgaven om genbrug og genanvendelse \"lokation\"",
+"type": "dialogue"
+},
+"74": {
+"next_id": "end",
+"parent_id": "52",
+"type": "goto"
+},
+"75": {
+"character": "",
+"next_id": "end!",
+"parent_id": "52",
+"replacements": [  ],
+"text": "samtaler_faerdig += 1",
+"translation_key": "samtaler_faerdig += 1",
+"type": "dialogue"
+},
+"79": {
+"next_id": "80",
+"text": "genbrug_slut",
+"type": "title"
+},
+"8": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "9",
+"parent_id": "7",
+"replacements": [  ],
+"text": "Det var alt for nu. Næste emne, som er affaldssortering, finder du bag denne dør.",
+"translation_key": "Det var alt for nu. Næste emne, som er affaldssortering, finder du bag denne dør.",
+"type": "dialogue"
+},
+"80": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "sidste_tale"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": true
+} ]
+},
+"next_conditional_id": "end!",
+"next_id": "81",
+"next_id_after": "end!",
+"type": "condition"
+},
+"81": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "82",
+"parent_id": "80",
+"replacements": [  ],
+"text": "Tillykke, endnu en opgave løst!",
+"translation_key": "Tillykke, endnu en opgave løst!",
+"type": "dialogue"
+},
+"82": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "83",
+"parent_id": "80",
+"replacements": [  ],
+"text": "Dette var det sidste fra min side af, Den sidste opgave er helt henne til højre, der skal du lære om vigtigheden af planter.",
+"translation_key": "Dette var det sidste fra min side af, Den sidste opgave er helt henne til højre, der skal du lære om vigtigheden af planter.",
+"type": "dialogue"
+},
+"83": {
+"next_id": "end",
+"parent_id": "80",
+"type": "goto"
+},
+"84": {
+"character": "",
+"next_id": "end!",
+"parent_id": "80",
+"replacements": [  ],
+"text": "samtaler_faerdig += 1",
+"translation_key": "samtaler_faerdig += 1",
+"type": "dialogue"
+},
+"88": {
+"next_id": "89",
+"text": "energi_start",
+"type": "title"
+},
+"89": {
+"condition": {
+"expression": [ {
+"type": "variable",
+"value": "energi_faerdig"
+}, {
+"type": "comparison",
+"value": "=="
+}, {
+"type": "bool",
+"value": false
+} ]
+},
+"next_conditional_id": "117",
+"next_id": "90",
+"next_id_after": "117",
+"type": "condition"
+},
+"9": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "10",
+"parent_id": "7",
+"replacements": [  ],
+"text": "Hvis du får brug for mig efter opgaven kan du finde mig nede start lokalet.",
+"translation_key": "Hvis du får brug for mig efter opgaven kan du finde mig nede start lokalet.",
+"type": "dialogue"
+},
+"90": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "91",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Velkommen til Energiafdelingen. Her lærer du om forskellige energiformer, som vi bruger, og hvilke energiformer vi planlægger at bruge i fremtiden.",
+"translation_key": "Velkommen til Energiafdelingen. Her lærer du om forskellige energiformer, som vi bruger, og hvilke energiformer vi planlægger at bruge i fremtiden.",
+"type": "dialogue"
+},
+"91": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "92",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Der bliver brugt 2 former for energi; der er vedvarende energi og så er der fossile energikilder.",
+"translation_key": "Der bliver brugt 2 former for energi; der er vedvarende energi og så er der fossile energikilder.",
+"type": "dialogue"
+},
+"92": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "93",
+"parent_id": "89",
+"replacements": [  ],
+"text": "De vedvarende energikilder er vindkraft, vandkraft, solenergi, biomasse og geotermisk energi. Vedvarende energikilder er energi der kan udvindes, hvorefter kilden fornyer sig selv.",
+"translation_key": "De vedvarende energikilder er vindkraft, vandkraft, solenergi, biomasse og geotermisk energi. Vedvarende energikilder er energi der kan udvindes, hvorefter kilden fornyer sig selv.",
+"type": "dialogue"
+},
+"93": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "94",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Vedvarende energi er også kendt som den grønne energi, fordi den næsten er CO2 neutral under brug, men bruger mere CO2 når konstruktionerne til vedvarende energi bliver bygget.",
+"translation_key": "Vedvarende energi er også kendt som den grønne energi, fordi den næsten er CO2 neutral under brug, men bruger mere CO2 når konstruktionerne til vedvarende energi bliver bygget.",
+"type": "dialogue"
+},
+"94": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "95",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Det er denne del af energiformer, som man vil have mere af i Danmarks fremtid, og den er derfor i klimaplanen for den grønne omstilling for et mere CO2-neutralt Danmark.",
+"translation_key": "Det er denne del af energiformer, som man vil have mere af i Danmarks fremtid, og den er derfor i klimaplanen for den grønne omstilling for et mere CO2-neutralt Danmark.",
+"type": "dialogue"
+},
+"95": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "96",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Den vedvarende energi er svær at opbevarer, det kan derfor være problematisk til tider, hvor der ikke er særlig meget vind, og dermed svag vandkraft, og heller ikke særlig meget sol.",
+"translation_key": "Den vedvarende energi er svær at opbevarer, det kan derfor være problematisk til tider, hvor der ikke er særlig meget vind, og dermed svag vandkraft, og heller ikke særlig meget sol.",
+"type": "dialogue"
+},
+"96": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "97",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Den fossile energi kommer fra fossile brændstoffer som kul, olie og gas, og atomer til atomkraft, som bliver brændt af eller brugt for at skabe energi til husholdninger, transport og meget mere.",
+"translation_key": "Den fossile energi kommer fra fossile brændstoffer som kul, olie og gas, og atomer til atomkraft, som bliver brændt af eller brugt for at skabe energi til husholdninger, transport og meget mere.",
+"type": "dialogue"
+},
+"97": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "98",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Den fossile energi er stadig en stor del af energien i Danmark, og planen er, at omlægge de fossile brændsler til vedvarende energi.",
+"translation_key": "Den fossile energi er stadig en stor del af energien i Danmark, og planen er, at omlægge de fossile brændsler til vedvarende energi.",
+"type": "dialogue"
+},
+"98": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "99",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Transportsektoren er den sektor som bruger mest energi i form af brændstof og el, for energien går til biler, toge, lastbiler, skibe, fly osv.",
+"translation_key": "Transportsektoren er den sektor som bruger mest energi i form af brændstof og el, for energien går til biler, toge, lastbiler, skibe, fly osv.",
+"type": "dialogue"
+},
+"99": {
+"character": "EcoGuide",
+"character_replacements": [  ],
+"next_id": "100",
+"parent_id": "89",
+"replacements": [  ],
+"text": "Den næst største forbruger af energi er husholdninger, hvilket er i takt med flere produkter som kræver energi.",
+"translation_key": "Den næst største forbruger af energi er husholdninger, hvilket er i takt med flere produkter som kræver energi.",
+"type": "dialogue"
+}
+}
