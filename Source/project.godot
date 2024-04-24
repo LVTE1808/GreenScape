@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Eksamen - bæredygtighed"
+config/name="GreenScape"
 run/main_scene="res://Scenes/Startside.tscn"
 config/icon="res://icon.png"
 
